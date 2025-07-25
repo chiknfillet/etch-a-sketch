@@ -9,9 +9,8 @@ function createGrid(size = 16) {
             const newDiv = document.createElement("div");
 
             newDiv.classList.add("block");
-
             newDiv.addEventListener('mouseover', () => {
-                newDiv.style.backgroundColor = 'red'
+                newDiv.style.backgroundColor = getRandomRGB();
             })
 
             newRow.appendChild(newDiv)
@@ -35,3 +34,10 @@ newGrid.addEventListener('click', () => {
 
     createGrid(size)
 });
+
+function getRandomRGB() {
+  const r = Math.floor(Math.random() * 256); // 0–255
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
